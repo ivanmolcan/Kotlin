@@ -1,28 +1,40 @@
 package sk.ivanmolcan.helloworld
 
 fun main(){
-    var num = 100
+//    var num = 100
+//
+//    while (num>=0){
+//        if(num%2 == 0) println(num)
+//        num--
+//    }
+//
+//    for(i in 0 .. 10000){
+////        print("$i")
+//        if(i == 9001) println("IT'S OVER 9000!!!")
+//    }
+//
+//    var humidity = "humid"
+//    var humidityLevel = 80
+//
+//    while(humidity == "humid"){
+//        println("$humidityLevel")
+//        humidityLevel -=5
+//        println("humidity decreased")
+//        if(humidityLevel < 60){
+//            println("it's comfy now")
+//            humidity = "comfy"
+//        }
+//    }
 
-    while (num>=0){
-        if(num%2 == 0) println(num)
-        num--
-    }
+    println(MobilePhone("Android", "Samsung", "Galaxy S20 Ultra"))
 
-    for(i in 0 .. 10000){
-//        print("$i")
-        if(i == 9001) println("IT'S OVER 9000!!!")
-    }
+}
 
-    var humidity = "humid"
-    var humidityLevel = 80
+class MobilePhone(osName: String = "Android", brand: String = "Nokia", model: String = "5540"){
 
-    while(humidity == "humid"){
-        println("$humidityLevel")
-        humidityLevel -=5
-        println("humidity decreased")
-        if(humidityLevel < 60){
-            println("it's comfy now")
-            humidity = "comfy"
-        }
+    var weight : Int? = null
+
+    init {
+        println("Os name - $osName, Brand - $brand, Model - $model")
     }
 }

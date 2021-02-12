@@ -27,6 +27,7 @@ fun main(){
 //    }
 
     println(MobilePhone("Android", "Samsung", "Galaxy S20 Ultra"))
+    println("\n ${Car().myBrand}")
 
 }
 
@@ -37,4 +38,23 @@ class MobilePhone(osName: String = "Android", brand: String = "Nokia", model: St
     init {
         println("Os name - $osName, Brand - $brand, Model - $model")
     }
+}
+
+class Car(){
+   lateinit var owner : String
+
+   val myBrand: String = "BMW"
+    get(){
+        return field
+    }
+
+    var maxSpeed: Int = 250
+    get() = field
+    set(value){
+        field = value
+    }
+
+   init{
+       owner = "Frank"
+   }
 }

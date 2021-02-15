@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     var lastNumeric: Boolean = false
     var lastDot: Boolean = false
-    var tv = binding.tvInput
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     fun onDigit(view: View){
 
-        tv.append((view as Button).text)
+        binding.tvInput.append((view as Button).text)
         lastNumeric = true
     }
 
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     fun onDecimalPoint(view: View){
         if(lastNumeric && !lastDot){
-            tv.append(".")
+            binding.tvInput.append(".")
             lastNumeric = false
             lastDot = true
         }
@@ -46,7 +45,7 @@ class MainActivity : AppCompatActivity() {
 
     fun onEqual(view: View){
         if(lastNumeric){
-            var tvValue = tv.text.toString()
+            var tvValue = binding.tvInput.text.toString()
             var prefix = ""
             try{
                 if(tvValue.startsWith("-")){
@@ -64,7 +63,7 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
 
-                    tv.text = removeZeroAfterDot((one.toDouble() / two.toDouble()).toString())
+                    binding.tvInput.text = removeZeroAfterDot((one.toDouble() / two.toDouble()).toString())
                 } else if(tvValue.contains("+")){
                     val splitValue = tvValue.split("+")
 
@@ -75,7 +74,7 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
 
-                    tv.text = removeZeroAfterDot((one.toDouble() + two.toDouble()).toString())
+                    binding.tvInput.text = removeZeroAfterDot((one.toDouble() + two.toDouble()).toString())
                 } else if(tvValue.contains("*")){
                     val splitValue = tvValue.split("*")
 
@@ -86,7 +85,7 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
 
-                    tv.text = removeZeroAfterDot((one.toDouble() * two.toDouble()).toString())
+                    binding.tvInput.text = removeZeroAfterDot((one.toDouble() * two.toDouble()).toString())
                 } else if(tvValue.contains("-")) {
                     val splitValue = tvValue.split("-")
 
@@ -97,7 +96,7 @@ class MainActivity : AppCompatActivity() {
                         one = prefix + one
                     }
 
-                    tv.text = removeZeroAfterDot((one.toDouble() - two.toDouble()).toString())
+                    binding.tvInput.text = removeZeroAfterDot((one.toDouble() - two.toDouble()).toString())
 
                 }
 
@@ -117,8 +116,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun onOperator(view: View){
-        if(lastNumeric && !isOperatorAdded(tv.text.toString())){
-            tv.append((view as Button).text)
+        if(lastNumeric && !isOperatorAdded(binding.tvInput.text.toString())){
+            binding.tvInput.append((view as Button).text)
             lastNumeric = false
             lastDot = false
         }

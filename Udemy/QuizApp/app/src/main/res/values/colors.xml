@@ -10,6 +10,8 @@
     <color name="cardTextColor">#363A43</color>
     <color name="cardTextColor2">#7A8089</color>
     <color name="cardBtn">#6917fa</color>
-    <color name="colorPrimaryDark">#6917fa</color>
-    <color name="colorAccent">#6917fa</color>
+    <color name="textColor">#363A43</color>
+    <color name="colorPrimary">#9013FE</color>
+    <color name="colorPrimaryDark">#6A1B9A</color>
+    <color name="colorAccent">#9013FE</color>
 </resources>

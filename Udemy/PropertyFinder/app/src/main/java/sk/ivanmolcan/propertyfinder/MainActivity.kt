@@ -14,6 +14,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     val baths = intArrayOf(2,2,1)
     val years = intArrayOf(1978, 2010, 2002)
 
+    val prop_1_images = arrayListOf<Int>()
+    val prop_2_images = arrayListOf<Int>()
+    val prop_3_images = arrayListOf<Int>()
+
+    val allImagesArr: MutableList<ArrayList<Int>> = mutableListOf()
+
     fun populateData(){
         descriptions.add("Waterfront Acreage & a magnificent home, shop & barn. A rare and fabulous offering! A Rancher style home on a 10.94 acre property. This location could not be better. The ultimate peaceful and quiet area, yet still close to town. Dream shop and barn, fenced, great for horses. One owner. - For more info click Multimedia (20423757)")
         descriptions.add("2.98 acre property is within minutes of downtown Merritt and the Coquihalla! Zoned CR1 this fully fenced property has a 44 X 30 garage with pit for the heavy duty mechanic or ? and a 15 X 20 shed/workshop/potential guest cabin/b& b plus a 2 car carport all with metal roofs & siding. The 1296 sq ft home has been FRESHLY PAINTED and a NEW APPLIANCE PACKAGE added. The 2 bedroom, 1 full bath home has had the Electrical Upgrade (Silver Seal) done recently. There is a huge greenhouse style addition (19'7\\\" X 17'10\\\") and the most gorgeous view of the city & mountains beyond. Owner says good producing drilled well approx 150 ft deep & previous subdivision plan on file in Kamloops. 100 amp service in house & 200 amp service for the garage & workshop. With a little TLC you'll be loving your country living with a spectacular view! (21511578)\")")
@@ -22,6 +28,21 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         titles.add("\$825,000")
         titles.add("\$499,900")
         titles.add("\$839,900")
+
+        prop_1_images.add(R.drawable.property_1_img_1)
+        prop_1_images.add(R.drawable.property_1_img_2)
+        prop_1_images.add(R.drawable.property_1_img_3)
+        allImagesArr.add(prop_1_images)
+
+        prop_2_images.add(R.drawable.property_2_img_1)
+        prop_2_images.add(R.drawable.property_2_img_2)
+        prop_2_images.add(R.drawable.property_2_img_3)
+        prop_2_images.add(R.drawable.property_2_img_4)
+        allImagesArr.add(prop_2_images)
+
+        prop_3_images.add(R.drawable.property_3_img_1)
+        prop_3_images.add(R.drawable.property_3_img_2)
+        allImagesArr.add(prop_3_images)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -58,6 +79,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         extras.putInt("yearsKey", years[index])
         extras.putString("titleKey", titles[index])
         extras.putString("descriptionKey", descriptions[index])
+
+        extras.putIntegerArrayList("imagesKey", allImagesArr[index])
 
         intent.putExtras(extras)
         startActivity(intent)

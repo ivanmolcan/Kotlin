@@ -13,6 +13,11 @@ class DetailsActivity : AppCompatActivity() {
             finish()
         }
 
+        fetchData()
+    }
+
+    fun fetchData() {
+
         val intent = intent
         val extras: Bundle? = intent.extras
 
@@ -32,6 +37,21 @@ class DetailsActivity : AppCompatActivity() {
         yearsTextView.text = years.toString()
 
 
+        val images = extras.getIntegerArrayList("imagesKey")
+        var index = 0
+        imageView.setImageResource(images!![index])
 
+        imageView.setOnClickListener{
+            index++
+            showNextImage(index, images)
+        }
+    }
+
+    fun showNextImage(index: Int, imageArr: ArrayList<Int>){
+        var mIndex = index
+        if(mIndex == imageArr.size){
+            mIndex = 0
+        }
+        imageView.setImageResource(imageArr[index])
     }
 }
